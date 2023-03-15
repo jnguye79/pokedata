@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+}
+
+body {
+    background-color: gray;
+}
+
+.header {
+    background-color: #BBD6B8;
+    padding: 1%;
+}
+
+.container {
+    background-color: white;
+    padding: 2% 0 2% 0;
+    margin-top: 3%;
+}
+
+.box {
+    background-color: white;
+}
