@@ -1,30 +1,24 @@
 const pokedex = document.getElementById("pokedex");
-
 const radar = document.getElementById('radar-chart');
-
 pokemon_global = null;
 
-const fetchPokemon = () => {
-
-    const promises = [];
-
-    for (let i = 1; i <= 150; i++) {
-        const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
-        promises.push(fetch(url).then((res) => res.json()));
-    }
-    
-    Promise.all(promises).then( results => {
-        const pokemon = results.map((data) => ({
-            name: data.name,
-            id: data.id,
-            image: data.sprites['front_default'],
-            type: data.types.map((type) => type.type.name).join(', '),
-            stats: [data.stats[0].base_stat, data.stats[1].base_stat, data.stats[2].base_stat, data.stats[3].base_stat, data.stats[4].base_stat, data.stats[5].base_stat] 
-        }));
-        
-        pokemon_global = pokemon;
+function filterList(array, filterInputValue) {
+    return array.filter((item) => {
+        const lowerCaseName = item.name.toLowerCase();
+        const lowerCaseQuery = filterInputValue.toLowerCase();
+        return lowerCaseName.includes(lowerCaseQuery);
     });
-};
+}
+
+function injectHTML(list) {
+    console.log("fired injectHTML");
+    const target = document.querySelector("#restaurant_list");
+    target.innerHTML = "";
+    list.forEach((item) => {
+      const str = `<li>${item.name}</li>`;
+      target.innerHTML += str;
+    });
+  }
 
 function RADAR(pokemon) {
     new Chart(radar, {
@@ -51,6 +45,28 @@ function RADAR(pokemon) {
     });
 }
 
+const fetchPokemon = () => {
+
+    const promises = [];
+
+    for (let i = 1; i <= 9; i++) {
+        const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
+        promises.push(fetch(url).then((res) => res.json()));
+    }
+    
+    Promise.all(promises).then( results => {
+        const pokemon = results.map((data) => ({
+            name: data.name,
+            id: data.id,
+            image: data.sprites['front_default'],
+            type: data.types.map((type) => type.type.name).join(', '),
+            stats: [data.stats[0].base_stat, data.stats[1].base_stat, data.stats[2].base_stat, data.stats[3].base_stat, data.stats[4].base_stat, data.stats[5].base_stat] 
+        }));
+        
+        pokemon_global = pokemon;
+    });
+};
+
 async function mainEvent() {
     const mainForm = document.querySelector('.main_form');
     const loadDataButton = document.querySelector('#data_load');
@@ -65,19 +81,16 @@ async function mainEvent() {
         displayPokemon(pokemon_global);
     });
 
-        
-    
-    textField.addEventListener('input', (event) => {
-        text_store = event.target.value
-        console.log(text_store);
-        search.addEventListener('click', (event) => {
-            console.log('click', ' ', text_store);
-            displayOnePokemon(text_store);
-        })
-    })
+    textField.addEventListener("input", (event) => {
+        console.log("input", event.target.value);
+        const newPokeList = filterList(pokemon, event.target.value);
+        console.log(newPokeList);
+        injectHTML(newPokeList);
+        displayPokemon(newPokeList);
+    });
 }
 
-const displayOnePokemon = (name) => {
+/* const displayOnePokemon = (name) => {
     console.log(name);
     position = 0;
     for (let i = 0; i < pokemon_global.length; i++) {
@@ -90,8 +103,7 @@ const displayOnePokemon = (name) => {
         }
       }
      
-      
-}
+} */
 
 const displayPokemon = (pokemon) => {
     console.log(pokemon);
@@ -106,9 +118,5 @@ const displayPokemon = (pokemon) => {
     ).join('');
     pokedex.innerHTML = pokemonHTMLString;
 }
-
-
-
-
 
 document.addEventListener('DOMContentLoaded', async () => mainEvent());

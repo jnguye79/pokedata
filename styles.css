@@ -23,11 +23,31 @@ body {
     background-color: white;
 }
 
-.card{
+.card {
     list-style: none;
     padding: 40px;
     background-color:white;
     color: #222; 
+    text-align: center;
+}
+
+.card:hover {
+    animation: bounce 0.5s linear;
+}
+
+@keyframes bounce {
+    20% {
+        transform: translateY(-6px);
+    }
+    40% {
+        transform: translateY(0px);
+    }
+    60% {
+        transform: translateY(-2px);
+    }
+    80% {
+        transform: translateY(-0px);
+    }
 }
 
 .card-title {
@@ -55,4 +75,3 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(300px, 5fr));
     grid-gap: 20px;
 }
-
