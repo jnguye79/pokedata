@@ -13,40 +13,6 @@ function filterList(array, filterInputValue) {
   return filtered;
 }
 
-function RADAR(pokemon) {
-  new Chart(radar, {
-    type: "radar",
-    data: {
-      labels: ["HP", "Atk", "Def", "SpA", "SpD", "Speed"],
-      datasets: [
-        {
-          data: pokemon.stats,
-          backgroundColor: ["lightgrey"],
-          pointBackgroundColor: [
-            "yellow",
-            "aqua",
-            "pink",
-            "lightgreen",
-            "lightblue",
-            "gold",
-          ],
-          borderColor: ["black"],
-          borderWidth: 1,
-          pointRadius: 6,
-        },
-      ],
-    },
-    options: {
-      responsive: false,
-      elements: {
-        line: {
-          borderWidth: 3,
-        },
-      },
-    },
-  });
-}
-
 const fetchPokemon = () => {
   const promises = [];
 
@@ -98,6 +64,38 @@ async function mainEvent() {
   });
 }
 
+function loadRadarChart(pokemon) {
+  //1.
+  let statsChart = document.getElementById("radar-chart");
+  //2.
+  statsChart = new Chart(statsChart, {
+    type: "radar",
+    data: {
+      //Will show up on each radar points in clockwise order
+      labels: ["HP", "Attack", "Defense", "Sp. Atk", "Sp. Def", "Speed"],
+      datasets: [
+        {
+          //one data obj per set, order same as labels
+          data: [
+            pokemon.stats[0],
+            pokemon.stats[1],
+            pokemon.stats[2],
+            pokemon.stats[3],
+            pokemon.stats[4],
+            pokemon.stats[5],
+          ],
+          backgroundColor: "rgba(197,48,48,0.5)", // red
+        },
+        /*Add another set if needed like so
+        {
+           data: [ ]
+        },
+        */
+      ],
+    },
+  })
+}
+
 /* const displayOnePokemon = (name) => {
     console.log(name);
     position = 0;
@@ -120,7 +118,7 @@ const displayPokemon = (pokemon) => {
     .map(
       (pokeman) =>
         `
-    <li class="card">
+    <li class="card" data-aos="fade-up" data-aos-duration="10">
         <img class="card-image" src="${pokeman.image}" />
         <h2>${pokeman.id}. ${pokeman.name}</h2>
         <p> Type: ${pokeman.type}</p>
@@ -132,3 +130,4 @@ const displayPokemon = (pokemon) => {
 };
 
 document.addEventListener("DOMContentLoaded", async () => mainEvent());
+
