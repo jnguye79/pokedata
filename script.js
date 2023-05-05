@@ -71,7 +71,7 @@ function loadRadarChart(pokemon) {
   statsChart = new Chart(statsChart, {
     type: "radar",
     data: {
-      //Will show up on each radar points in clockwise order
+      // Will show up on each radar points in clockwise order
       labels: ["HP", "Attack", "Defense", "Sp. Atk", "Sp. Def", "Speed"],
       datasets: [
         {
@@ -113,7 +113,6 @@ function loadRadarChart(pokemon) {
 
 const displayPokemon = (pokemon) => {
   console.log(pokemon);
-  pokedex.innerHTML = "";
   const pokemonHTMLString = pokemon
     .map(
       (pokeman) =>
