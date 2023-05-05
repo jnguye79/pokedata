@@ -77,12 +77,12 @@ function loadRadarChart(pokemon) {
         {
           //one data obj per set, order same as labels
           data: [
-            pokemon.stats[0],
-            pokemon.stats[1],
-            pokemon.stats[2],
-            pokemon.stats[3],
-            pokemon.stats[4],
-            pokemon.stats[5],
+            pokemon.stats[0].base_stat,
+            pokemon.stats[1].base_stat,
+            pokemon.stats[2].base_stat,
+            pokemon.stats[3].base_stat,
+            pokemon.stats[4].base_stat,
+            pokemon.stats[5].base_stat,
           ],
           backgroundColor: "rgba(197,48,48,0.5)", // red
         },
