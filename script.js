@@ -44,15 +44,18 @@ const fetchPokemon = () => {
 async function mainEvent() {
   const mainForm = document.querySelector(".main_form");
   const loadDataButton = document.querySelector("#data_load");
+  const CleanDataButton = document.querySelector("#data_clean");
   const search = document.querySelector("#data_filter");
   const textField = document.querySelector("#pokeName");
   console.log(textField);
 
   fetchPokemon();
 
+  const storedData = localStorage.getItem("storedData");  
   loadDataButton.addEventListener("click", async (submitEvent) => {
     // async has to be declared on every function that needs to "await" something
     console.log("loading Pokemon");
+    localStorage.setItem("storedData", pokemon_global)
     displayPokemon(pokemon_global);
   });
 
@@ -61,6 +64,13 @@ async function mainEvent() {
     const newPokeList = filterList(pokemon_global, event.target.value);
     console.log("loading new List");
     displayPokemon(newPokeList);
+  });
+
+  CleanDataButton.addEventListener("click", async (submitEvent) => {
+    // async has to be declared on every function that needs to "await" something
+    console.log("pre clean storage check", localStorage.getItem("storedData"));
+    localStorage.clear();
+    console.log("post clean storage check", localStorage.getItem("storedData"));
   });
 }
 
