@@ -11,6 +11,9 @@ body {
 .header {
     background-color: #BBD6B8;
     padding: 1%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .container {

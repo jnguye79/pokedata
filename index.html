@@ -14,7 +14,8 @@
 </head>
 <body>
     <div class="header">
-        <h1>Pokemon Database Search</h1>
+        <a href="index.html"><h1>Pokemon Database Search</h1></a>
+        <a href="about.html"><p>About</p></a>
     </div>
     <div class="search_container text-center main_form" data-aos="flip-down">
         <div class="row">
@@ -22,76 +23,49 @@
                 <p>Name</p>
                 <input type="text" name="pokeName" id="pokeName">  
             </div>
-            <!-- <div class="col">
-                <p>Move(1)</p>
-                <input type="text">  
-            </div>
             <div class="col">
-                <p>Move(2)</p>
-                <input type="text">  
-            </div>
-            <div class="col">
-                <p>Move(3)</p>
-                <input type="text">  
-            </div>
-            <div class="col">
-                <p>Move(4)</p>
-                <input type="text">  
-            </div> -->
-        </div>
-        <!-- <div class="row">
-            <div class="col">
-                <p>Type</p>
-                <select name="Type" id="monType">
-                    <option value="">---</option>
-                    <option value="normal-type">normal</option>
-                    <option value="fire-type">fire</option>
-                    <option value="water-type">water</option>
-                    <option value="electric-type">electric</option>
-                    <option value="grass-type">grass</option>
-                    <option value="ice-type">ice</option>
-                    <option value="fighting-type">fighting</option>
-                    <option value="poison-type">poison</option>
-                    <option value="ground-type">ground</option>
-                    <option value="flying-type">flying</option>
-                    <option value="psychic-type">psychic</option>
-                    <option value="bug-type">bug</option>
-                    <option value="rock-type">rock</option>
-                    <option value="ghost-type">ghost</option>
-                    <option value="dragon-type">dragon</option>
-                    <option value="dark-type">dark</option>
-                    <option value="steel-type">steel</option>
-                    <option value="fairy-type">fairy</option>
-                </select>
-
-            </div>
-            <div class="col">
-                <p>Generation</p>
-                <select name="generation" id="gen">
-                    <option value="">-</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                </select>  
+                <p>Ability</p>
+                <input type="text" name="abType" id="abType">
             </div>
             <div class="col">
                 <p>Height</p>
-                <input type="text">  
+                <input type="text" name="height" id="height">  
             </div>
             <div class="col">
                 <p>Weight</p>
-                <input type="text">  
+                <input type="text" name="weight" id="weight">  
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col">
+                <p>Move</p>
+                <input type="text" name="moveType" id="moveType">  
             </div>
             <div class="col">
-                <p>Effective Against</p>
-                <input type="text">  
-            </div> -->
+                <p>Type</p>
+                <select name="Type" id="pokeType">
+                    <option value="">---</option>
+                    <option value="normal">normal</option>
+                    <option value="fire">fire</option>
+                    <option value="water">water</option>
+                    <option value="electric">electric</option>
+                    <option value="grass">grass</option>
+                    <option value="ice">ice</option>
+                    <option value="fighting">fighting</option>
+                    <option value="poison">poison</option>
+                    <option value="ground">ground</option>
+                    <option value="flying">flying</option>
+                    <option value="psychic">psychic</option>
+                    <option value="bug">bug</option>
+                    <option value="rock">rock</option>
+                    <option value="ghost">ghost</option>
+                    <option value="dragon">dragon</option>
+                    <option value="dark">dark</option>
+                    <option value="steel">steel</option>
+                    <option value="fairy">fairy</option>
+                </select>
+            </div>
             <div>
                 <button type="button" id="data_load">Display All Pokemon</button>
                 <button type="button" id="data_clean">Clear Pokemon Data</button>
