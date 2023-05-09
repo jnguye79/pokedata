@@ -3,7 +3,7 @@
 }
 
 body {
-    background-color: orangered;
+    background-image: url("Pokemon_test.jpg");
     margin: 0;
     font-family: 'Rubik', sans-serif;
 }
@@ -14,7 +14,15 @@ body {
 }
 
 .container {
-    background-color: white;
+    padding: 2% 0 2% 0;
+    margin-top: 3%;
+}
+
+.search_container {
+    margin: auto;
+    color:white;
+    background-color: rgb(24, 27, 31);
+    width: 500px; 
     padding: 2% 0 2% 0;
     margin-top: 3%;
 }
@@ -33,6 +41,7 @@ body {
 
 .card:hover {
     animation: bounce 0.5s linear;
+    background-color: red;
 }
 
 @keyframes bounce {
