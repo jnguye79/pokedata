@@ -61,7 +61,7 @@ function filterMoveList(array, filterInputValue) {
   var filtered = [];
   for (var i = 0; i < array.length; i++) {
     var pokemon = array[i];
-    if (pokemon.moves.toLowerCase().includes(filterInputValue.toLowerCase())) {
+    if (pokemon.moves.includes(filterInputValue)) {
       filtered.push(pokemon);
     }
   }
@@ -90,7 +90,7 @@ const fetchPokemon = () => {
         data.stats[4].base_stat,
         data.stats[5].base_stat,
       ],
-      moves: data.moves[0].move.name,
+      moves: data.moves.map((move => move.move.name)),
       abilities: data.abilities.map((ability) => ability.ability.name),
       height: data.height,
       weight: data.weight,
