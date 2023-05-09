@@ -12,6 +12,6 @@ Our actual project is allowing users to look up pokemon, using a variety of attr
 
 Documentation: 
 
-*Name: Input the Pokemon's name (not case sensitive).
-*Height: Input the height (in feet) and it will show all Pokemon who are at least that height. 
-*Moves: Input the name of a Pokemon move, a list can be found in the about section, and it will return all Pokemon who can learn that move.  For moves with spaces, use a hypen and all lower-case. 
+- Name: Input the Pokemon's name (not case sensitive).
+- Height: Input the height (in feet) and it will show all Pokemon who are at least that height. 
+- Moves: Input the name of a Pokemon move, a list can be found in the about section, and it will return all Pokemon who can learn that move.  For moves with spaces, use a hypen and all lower-case. 
