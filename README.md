@@ -8,4 +8,4 @@ We used the PokeAPI for this project (https://pokeapi.co/) to get data for all a
 Our project uses the images for each Pokemon to create a small information card for each Pokemon in the database.
 We used the Animate on Scroll (AOS) javascript library for this webpage. 
 We used the keyframes CSS framework in our project.
-Our actual project is allowing users to look up pokemon, using a variety of attributes, such as name, type, height, or and weight.  This also allows users to search us sections of pokemon names that are shared with future evolutions (char, nido, saur) to see all evolutions of that specific Pokemon tree.  It also allows users to search for specific features such as all pokemon of a certain type or a certain build (height and weight).
+Our actual project is allowing users to look up pokemon, using a variety of attributes, such as name, type, height, weight, moves, and abilites.  This allows users to search for Pokemon using a variety of different attributes.
