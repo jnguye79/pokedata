@@ -13,6 +13,61 @@ function filterList(array, filterInputValue) {
   return filtered;
 }
 
+function filterTypeList(array, filterInputValue) {
+  var filtered = [];
+  for (var i = 0; i < array.length; i++) {
+    var pokemon = array[i];
+    if (pokemon.type.toLowerCase().includes(filterInputValue.toLowerCase())) {
+      filtered.push(pokemon);
+    }
+  }
+  return filtered;
+}
+
+function filterAbilityList(array, filterInputValue) {
+  var filtered = [];
+  for (var i = 0; i < array.length; i++) {
+    var pokemon = array[i];
+    if (pokemon.abilities.includes(filterInputValue)) {
+      filtered.push(pokemon);
+    }
+  }
+  return filtered;
+}
+
+function filterHeightList(array, filterInputValue) {
+  var filtered = [];
+  for (var i = 0; i < array.length; i++) {
+    var pokemon = array[i];
+    if (pokemon.height >= filterInputValue) {
+      filtered.push(pokemon);
+    }
+  }
+  return filtered;
+}
+
+function filterWeightList(array, filterInputValue) {
+  var filtered = [];
+  for (var i = 0; i < array.length; i++) {
+    var pokemon = array[i];
+    if (pokemon.weight >= filterInputValue) {
+      filtered.push(pokemon);
+    }
+  }
+  return filtered;
+}
+
+function filterMoveList(array, filterInputValue) {
+  var filtered = [];
+  for (var i = 0; i < array.length; i++) {
+    var pokemon = array[i];
+    if (pokemon.moves.toLowerCase().includes(filterInputValue.toLowerCase())) {
+      filtered.push(pokemon);
+    }
+  }
+  return filtered;
+}
+
 const fetchPokemon = () => {
   const promises = [];
 
@@ -35,6 +90,10 @@ const fetchPokemon = () => {
         data.stats[4].base_stat,
         data.stats[5].base_stat,
       ],
+      moves: data.moves[0].move.name,
+      abilities: data.abilities.map((ability) => ability.ability.name),
+      height: data.height,
+      weight: data.weight,
     }));
 
     pokemon_global = pokemon;
@@ -47,21 +106,62 @@ async function mainEvent() {
   const CleanDataButton = document.querySelector("#data_clean");
   const search = document.querySelector("#data_filter");
   const textField = document.querySelector("#pokeName");
+  const typeField = document.querySelector("#pokeType");
+  const abilityField = document.querySelector("#abType");
+  const heightField = document.querySelector("#height");
+  const weightField = document.querySelector("#weight");
+  const moveField = document.querySelector("#moveType");
+
   console.log(textField);
 
   fetchPokemon();
 
-  const storedData = localStorage.getItem("storedData");  
+  const storedData = localStorage.getItem("storedData");
   loadDataButton.addEventListener("click", async (submitEvent) => {
     // async has to be declared on every function that needs to "await" something
     console.log("loading Pokemon");
-    localStorage.setItem("storedData", pokemon_global)
+    localStorage.setItem("storedData", pokemon_global);
     displayPokemon(pokemon_global);
   });
 
   textField.addEventListener("input", (event) => {
     console.log("input", event.target.value);
     const newPokeList = filterList(pokemon_global, event.target.value);
+    console.log("loading new List");
+    displayPokemon(newPokeList);
+  });
+
+  typeField.addEventListener("input", (event) => {
+    console.log("input", event.target.value);
+    const newPokeList = filterTypeList(pokemon_global, event.target.value);
+    console.log("loading new List");
+    displayPokemon(newPokeList);
+  });
+
+  abilityField.addEventListener("input", (event) => {
+    console.log("input", event.target.value);
+    const newPokeList = filterAbilityList(pokemon_global, event.target.value);
+    console.log("loading new List");
+    displayPokemon(newPokeList);
+  });
+
+  heightField.addEventListener("input", (event) => {
+    console.log("input", event.target.value);
+    const newPokeList = filterHeightList(pokemon_global, event.target.value);
+    console.log("loading new List");
+    displayPokemon(newPokeList);
+  });
+
+  weightField.addEventListener("input", (event) => {
+    console.log("input", event.target.value);
+    const newPokeList = filterWeightList(pokemon_global, event.target.value);
+    console.log("loading new List");
+    displayPokemon(newPokeList);
+  });
+
+  moveField.addEventListener("input", (event) => {
+    console.log("input", event.target.value);
+    const newPokeList = filterMoveList(pokemon_global, event.target.value);
     console.log("loading new List");
     displayPokemon(newPokeList);
   });
@@ -103,7 +203,7 @@ function loadRadarChart(pokemon) {
         */
       ],
     },
-  })
+  });
 }
 
 /* const displayOnePokemon = (name) => {
@@ -139,4 +239,3 @@ const displayPokemon = (pokemon) => {
 };
 
 document.addEventListener("DOMContentLoaded", async () => mainEvent());
-
