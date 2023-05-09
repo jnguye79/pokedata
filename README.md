@@ -1,6 +1,6 @@
-# https://jnguye79.github.io/INST377-Final-Project/
+https://jnguye79.github.io/INST377-Final-Project/
 
-Pokemon Database Search 
+# Pokemon Database Search 
 
 Our target browsers would be modern versions of both Chrome and Firefox on primarily Desktop/Laptop browsers. 
 
