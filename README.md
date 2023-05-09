@@ -15,3 +15,13 @@ Documentation:
 - Name: Input the Pokemon's name (not case sensitive).
 - Height: Input the height (in feet) and it will show all Pokemon who are at least that height. 
 - Moves: Input the name of a Pokemon move, a list can be found in the about section, and it will return all Pokemon who can learn that move.  For moves with spaces, use a hypen and all lower-case. 
+- Weight: Input the weight (in pounts) and it will show all Pokemon who are at least that weight.
+- Ability: Input the ability (lower-case, all spaces are replaced with '-') of a specific pokemon.
+- Type: Choose the Pokemon's elemental type.
+
+Roles
+- One data handler to front-end library connection (Anthony, Jimmy)
+- One input handler, form submission, table sorter, or similar piece of independent data handling code (Anthony, Jimmy)
+- One set of CSS display pieces (Anthony, Jimmy)
+- Part of the documentation (Anthony, Jimmy)
+- Presentation (Anthony, Jimmy)
